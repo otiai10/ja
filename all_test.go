@@ -14,7 +14,7 @@ const str = `沖縄地方は、台風第６号の影響で曇りや雨の天気�
 沿岸の海域はうねりを伴い、沖縄本島地方と先島諸島では大しけとなっています。沿岸の海域ではうねりを伴う高波に警戒してください。大東島地方ではうねりを伴い波が高くなっています。高波に注意してください。`
 
 func TestParagraph(t *testing.T) {
-	blocks := Paragraph(str, 100)
+	blocks := Paragraph(str, Within(60))
 	Expect(t, len(blocks)).ToBe(6)
 	Expect(t, len(blocks[0])).ToBe(1)
 	Expect(t, len(blocks[1])).ToBe(2)
