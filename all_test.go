@@ -21,3 +21,11 @@ func TestParagraph(t *testing.T) {
 	Expect(t, len(blocks[2])).ToBe(2)
 	Expect(t, len(blocks[3])).ToBe(1)
 }
+
+func TestCut(t *testing.T) {
+	s := "予報期間　８月３日から８月９日まで\n　向こう一週間は、期間の前半は高気圧に覆われて晴れる日もありますが、気圧の谷や湿った空気の影響で雲が広がりやすいでしょう。\n　最高気温と最低気温はともに、平年並か平年より高い見込みです。熱中症など健康管理に注意してください。\n　降水量は、平年並か平年より少ないでしょう。"
+	x1 := Cut(s)
+	Expect(t, x1[1]).ToBe("　向こう一週間は、")
+	x2 := Cut(s, true)
+	Expect(t, x2[1]).ToBe("向こう一週間は、")
+}
