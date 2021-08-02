@@ -7,7 +7,7 @@ import (
 
 var (
 	punctuation = regexp.MustCompile("[、。\n]")
-	cleanset    = " 　"
+	cleanset    = "\n  　"
 )
 
 func Cut(sentence string, clean ...bool) (chunks []string) {
